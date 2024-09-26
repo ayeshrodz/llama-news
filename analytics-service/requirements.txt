@@ -1,2 +1,5 @@
 llama-cpp-python
 requests
+fastapi
+uvicorn
+pydantic

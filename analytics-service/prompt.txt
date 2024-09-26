@@ -1,60 +1,108 @@
 Please perform the following analyses on the above text:
 
-**Sentiment Analysis:**
-    - Determine the overall sentiment of the text.
-    - Provide appropriate scores (0 to 1 value) for 'Positive', 'Negative', and 'Neutral' sentiments.
-    - Each score should be a float between 0 and 1, and the sum of all three should equal 1.
+1. **Sentiment Analysis**:
+   - Determine the overall sentiment of the text.
+   - Provide appropriate scores (0 to 1 value) for 'Positive', 'Negative', and 'Neutral' sentiments.
+   - Each score should be a float between 0 and 1, and the sum of all three should equal 1.
 
-**Tone Analysis:**
-    - Identify the tone(s) present in the text (e.g., 'Formal', 'Urgent', 'Informative', etc.).
-    - For each tone, provide a 'Type' and a 'Score' between 0 and 1 indicating the intensity.
+2. **Tone Analysis**:
+   - Identify the tone(s) present in the text (e.g., 'Formal', 'Urgent', 'Informative', etc.).
+   - For each tone, provide a 'Type' and a 'Score' between 0 and 1 indicating the intensity.
 
-**Language Descriptors:**
+
+3. **Language Descriptors:**
     - List descriptors that characterize the language used (e.g., 'Straightforward', 'Complex', 'Emotive', etc.).
     - Provide a 'Descriptor' and a 'Score' between 0 and 1 for each.
 
-**Emotive Phrases:**
+4. **Emotive Phrases:**
     - Identify any emotionally charged phrases in the text.
     - For each phrase, provide the 'Phrase' and an 'Intensity' score between 0 and 1.
 
-**Authority Figure:**
+5. **Authority Figure:**
     - Determine if an authority figure is mentioned or implied.
     - Set 'Present' to 1.0 if present, 0.0 otherwise.
     - Provide a 'Credibility' score between 0 and 1 for the authority figure.
 
-**Keywords Extraction:**
+6. **Keywords Extraction:**
     - Extract significant keywords from the text.
     - Provide highly important and related keywords that describe and bring out the actual meaning of the news.
 
-**Summarizing the News Text:**
+7. **Summarizing the News Text:**
     - Summarize the text. Use a maximum of 200 words for the summary.
     - Include important data such as dates, figures, or names without changing the original meaning of the news.
 
-**Named Entity Recognition (NER):**
+8. **Named Entity Recognition (NER):**
     - Extract entities such as People, Organizations, Locations, and Dates mentioned in the text.
 
-**Emotion Analysis:**
+9. **Emotion Analysis:**
     - Identify specific emotions expressed in the text (e.g., 'Joy', 'Fear', 'Anger', 'Sadness', 'Surprise').
     - For each emotion, provide a 'Type' and a 'Score' between 0 and 1.
 
-**Subjectivity Analysis:**
+10. **Subjectivity Analysis:**
     - Determine whether the text is Objective or Subjective.
     - Provide a 'Type' and a 'Score' between 0 and 1 indicating the degree of subjectivity.
 
-**Recommendations:**
+11. **Recommendations:**
     - Provide any suggestions or precautions based on the content.
 
-**Questions Generated:**
+12. **Questions Generated:**
     - Generate questions based on the text content that could help in understanding the key points.
 
-**Important Instructions**:
+13. **News Categorization**:
+    - Assign one or more categories to the news article based on its content.
+    - Categories can include (but are not limited to): 'Politics', 'Economy', 'Health', 'Science', 'Technology', 'Sports', 'Entertainment', 'Weather', 'Crime', 'International', 'Local', etc.
+    - Provide a list of categories that best describe the news article.
+
+14. **Important Instructions**:
     - Output only the JSON object as per the structure below.
     - Do not include any additional text, explanations, punctuation marks, or commentary.
     - Ensure the JSON is properly formatted and valid.
     - All float values should be rounded to two decimal places.
     - Begin the JSON output with `<JSON_START>` and end with `<JSON_END>`.
 
+15. **JSON Structure:**
 
-JSON Structure:
-
-<JSON_START> { "Sentiment": { "Positive": float, "Negative": float, "Neutral": float }, "Tone": [ {"Type": str, "Score": float}, ... ], "Language": [ {"Descriptor": str, "Score": float}, ... ], "Emotive Phrases": [ {"Phrase": str, "Intensity": float}, ... ], "Authority Figure": { "Present": float, "Credibility": float }, "Keywords": [str, ...], "Summary": "str...", "Entities": { "People": [str, ...], "Organizations": [str, ...], "Locations": [str, ...], "Dates": [str, ...] }, "Emotions": [ {"Type": str, "Score": float}, ... ], "Subjectivity": { "Type": str, "Score": float }, "Recommendations": [str, ...], "Questions": [str, ...] } <JSON_END>
+"""<JSON_START>
+{
+  "Sentiment": {
+    "Positive": float,
+    "Negative": float,
+    "Neutral": float
+  },
+  "Tone": [
+    {"Type": str, "Score": float},
+    ...
+  ],
+  "Language": [
+    {"Descriptor": str, "Score": float},
+    ...
+  ],
+  "Emotive_Phrases": [
+    {"Phrase": str, "Intensity": float},
+    ...
+  ],
+  "Authority_Figure": {
+    "Present": float,
+    "Credibility": float
+  },
+  "Keywords": [str, ...],
+  "Summary": "str...",
+  "Entities": {
+    "People": [str, ...],
+    "Organizations": [str, ...],
+    "Locations": [str, ...],
+    "Dates": [str, ...]
+  },
+  "Emotions": [
+    {"Type": str, "Score": float},
+    ...
+  ],
+  "Subjectivity": {
+    "Type": str,
+    "Score": float
+  },
+  "Recommendations": [str, ...],
+  "Questions": [str, ...],
+  "Categories": [str, ...],
+}
+<JSON_END>"""
