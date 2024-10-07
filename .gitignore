@@ -1,2 +1,4 @@
-venv
+venv/
+news-service/
+analytics-service/
 *__pycache__
