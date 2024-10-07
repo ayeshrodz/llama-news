@@ -53,56 +53,92 @@ Please perform the following analyses on the above text:
     - Categories can include (but are not limited to): 'Politics', 'Economy', 'Health', 'Science', 'Technology', 'Sports', 'Entertainment', 'Weather', 'Crime', 'International', 'Local', etc.
     - Provide a list of categories that best describe the news article.
 
-14. **Important Instructions**:
-    - Output only the JSON object as per the structure below.
-    - Do not include any additional text, explanations, punctuation marks, or commentary.
-    - Ensure the JSON is properly formatted and valid.
-    - All float values should be rounded to two decimal places.
-    - Begin the JSON output with `<JSON_START>` and end with `<JSON_END>`.
+**Important Instructions**:
 
-15. **JSON Structure:**
+- **Your response should be a valid XML document only. Do not include any code blocks, markdown formatting, or additional explanations.**
+- **Ensure that the XML is properly formatted and valid, with correct nesting of elements and proper encoding of special characters.**
+- **Begin the XML output immediately, without any preceding or following text.**
+- **All float values should be rounded to two decimal places.**
+- **Represent all data using appropriate XML elements and attributes as specified in the structure below.**
 
-<JSON_START>
-{
-  "Sentiment": {
-    "Positive": float,
-    "Negative": float,
-    "Neutral": float
-  },
-  "Tone": [
-    {"Type": str, "Score": float},
-    ...
-  ],
-  "Language": [
-    {"Descriptor": str, "Score": float},
-    ...
-  ],
-  "Emotive_Phrases": [
-    {"Phrase": str, "Intensity": float},
-    ...
-  ],
-  "Authority_Figure": {
-    "Present": float,
-    "Credibility": float
-  },
-  "Keywords": [str, ...],
-  "Summary": "str...",
-  "Entities": {
-    "People": [str, ...],
-    "Organizations": [str, ...],
-    "Locations": [str, ...],
-    "Dates": [str, ...]
-  },
-  "Emotions": [
-    {"Type": str, "Score": float},
-    ...
-  ],
-  "Subjectivity": {
-    "Type": str,
-    "Score": float
-  },
-  "Recommendations": [str, ...],
-  "Questions": [str, ...],
-  "Categories": [str, ...],
-}
-<JSON_END>
+**XML Structure**:
+
+```xml
+<Analysis>
+  <Sentiment>
+    <Positive>float</Positive>
+    <Negative>float</Negative>
+    <Neutral>float</Neutral>
+  </Sentiment>
+  <Tone>
+    <ToneEntry>
+      <Type>string</Type>
+      <Score>float</Score>
+    </ToneEntry>
+    <!-- Repeat <ToneEntry> as needed -->
+  </Tone>
+  <Language>
+    <LanguageEntry>
+      <Descriptor>string</Descriptor>
+      <Score>float</Score>
+    </LanguageEntry>
+    <!-- Repeat <LanguageEntry> as needed -->
+  </Language>
+  <EmotivePhrases>
+    <PhraseEntry>
+      <Phrase>string</Phrase>
+      <Intensity>float</Intensity>
+    </PhraseEntry>
+    <!-- Repeat <PhraseEntry> as needed -->
+  </EmotivePhrases>
+  <AuthorityFigure>
+    <Present>float</Present>
+    <Credibility>float</Credibility>
+  </AuthorityFigure>
+  <Keywords>
+    <Keyword>string</Keyword>
+    <!-- Repeat <Keyword> as needed -->
+  </Keywords>
+  <Summary>string</Summary>
+  <Entities>
+    <People>
+      <Person>string</Person>
+      <!-- Repeat <Person> as needed -->
+    </People>
+    <Organizations>
+      <Organization>string</Organization>
+      <!-- Repeat <Organization> as needed -->
+    </Organizations>
+    <Locations>
+      <Location>string</Location>
+      <!-- Repeat <Location> as needed -->
+    </Locations>
+    <Dates>
+      <Date>string</Date>
+      <!-- Repeat <Date> as needed -->
+    </Dates>
+  </Entities>
+  <Emotions>
+    <EmotionEntry>
+      <Type>string</Type>
+      <Score>float</Score>
+    </EmotionEntry>
+    <!-- Repeat <EmotionEntry> as needed -->
+  </Emotions>
+  <Subjectivity>
+    <Type>string</Type>
+    <Score>float</Score>
+  </Subjectivity>
+  <Recommendations>
+    <Recommendation>string</Recommendation>
+    <!-- Repeat <Recommendation> as needed -->
+  </Recommendations>
+  <Questions>
+    <Question>string</Question>
+    <!-- Repeat <Question> as needed -->
+  </Questions>
+  <Categories>
+    <Category>string</Category>
+    <!-- Repeat <Category> as needed -->
+  </Categories>
+</Analysis>
