@@ -1,4 +1,5 @@
 venv/
 news-service/
-analytics-service/
+analysis/
+analytics-service/old/
 *__pycache__
